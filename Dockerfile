@@ -1,7 +1,9 @@
 # Install dependencies only when needed
 FROM node:18.15-alpine AS deps
+RUN npm config set registry https://registry.npm.taobao.org
+RUN sed -i 's!http://dl-cdn.alpinelinux.org/!http://mirrors.aliyun.com/alpine/!g' /etc/apk/repositories
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat && npm install -g pnpm
+RUN apk --no-cache -U upgrade && apk add --no-cache libc6-compat && npm install pnpm -g
 WORKDIR /app
 
 ARG name
@@ -17,6 +19,9 @@ RUN pnpm install
 
 # Rebuild the source code only when needed
 FROM node:18.15-alpine AS builder
+RUN npm config set registry https://registry.npm.taobao.org
+RUN sed -i 's!http://dl-cdn.alpinelinux.org/!http://mirrors.aliyun.com/alpine/!g' /etc/apk/repositories
+
 WORKDIR /app
 
 ARG name
@@ -34,6 +39,9 @@ RUN npm install -g pnpm
 RUN pnpm --filter=$name run build
 
 FROM node:18.15-alpine AS runner
+RUN npm config set registry https://registry.npm.taobao.org
+RUN sed -i 's!http://dl-cdn.alpinelinux.org/!http://mirrors.aliyun.com/alpine/!g' /etc/apk/repositories
+
 WORKDIR /app
 
 ARG name
@@ -42,7 +50,7 @@ ARG name
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-RUN apk add --no-cache curl ca-certificates \
+RUN apk --no-cache -U upgrade && apk add --no-cache curl ca-certificates \
   && update-ca-certificates
 
 # copy running files

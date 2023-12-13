@@ -10,6 +10,6 @@ export const getFastGPTFeConfig = async () => {
   });
 
   const config: FeConfigsType = res?.value?.FeConfig || {};
-
+  // console.log('config', config);
   return config;
 };

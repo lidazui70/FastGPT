@@ -48,7 +48,7 @@ const Navbar = () => {
             label: t('home.Docs'),
             key: 'docs',
             onClick: () => {
-              window.open(getDocPath('/docs/intro'));
+              window.open('https://yi.leanai.wang', '_blank');
             }
           }
         ]

@@ -11,7 +11,7 @@ import type {
 export const defaultChatModels: ChatModelItemType[] = [
   {
     model: 'gpt-3.5-turbo-1106',
-    name: 'GPT35-1106',
+    name: 'GPT35-1106A12',
     price: 0,
     maxContext: 16000,
     maxResponse: 4000,

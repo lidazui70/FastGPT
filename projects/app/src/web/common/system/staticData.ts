@@ -46,6 +46,9 @@ export const clientInitData = async (): Promise<InitDateResponse> => {
     audioSpeechModels = res.audioSpeechModels ?? audioSpeechModels;
 
     feConfigs = res.feConfigs;
+    feConfigs.systemTitle = 'Lean.AI';
+    feConfigs.docUrl = '/';
+    feConfigs.openAPIDocUrl = '/';
     priceMd = res.priceMd;
     systemVersion = res.systemVersion;
 

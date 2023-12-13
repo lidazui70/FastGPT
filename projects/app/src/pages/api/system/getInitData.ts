@@ -57,7 +57,7 @@ const defaultFeConfigs: FeConfigsType = {
   show_register: false,
   docUrl: 'https://doc.fastgpt.in',
   openAPIDocUrl: 'https://doc.fastgpt.in/docs/development/openapi',
-  systemTitle: 'FastGPT',
+  systemTitle: 'Lean.AI',
   limit: {
     exportLimitMinutes: 0
   },

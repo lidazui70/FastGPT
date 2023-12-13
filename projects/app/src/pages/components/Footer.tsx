@@ -23,15 +23,15 @@ const Footer = () => {
             }
           },
           {
-            label: 'Sealos',
+            label: '易AI助手',
             onClick: () => {
-              window.open('https://github.com/labring/sealos', '_blank');
+              window.open('https://ai.leanai.wang', '_blank');
             }
           },
           {
-            label: 'Laf',
+            label: '精益AI社区',
             onClick: () => {
-              window.open('https://github.com/labring/laf', '_blank');
+              window.open('https://yi.leanai.wang', '_blank');
             }
           }
         ]
@@ -48,7 +48,13 @@ const Footer = () => {
           {
             label: t('home.Footer Docs'),
             onClick: () => {
-              window.open(getDocPath('/docs/intro'), '_blank');
+              window.open('https://yi.leanai.wang', '_blank');
+            }
+          },
+          {
+            label: '大模型',
+            onClick: () => {
+              window.open('https://yi.leanai.wang/forum/178.html', '_blank');
             }
           }
         ]
@@ -59,13 +65,13 @@ const Footer = () => {
           {
             label: t('home.Footer Feedback'),
             onClick: () => {
-              window.open('https://github.com/labring/FastGPT/issues', '_blank');
+              window.open('https://yi.leanai.wang/forum/185.html', '_blank');
             }
           },
           {
             label: t('home.Community'),
             onClick: () => {
-              onOpen();
+              window.open('https://yi.leanai.wang/forums', '_blank');
             }
           }
         ]
@@ -98,6 +104,7 @@ const Footer = () => {
         </Flex>
         <Box mt={5} fontSize={'sm'} color={'myGray.600'} maxW={'380px'} textAlign={'justify'}>
           {t('home.FastGPT Desc', { title: feConfigs.systemTitle })}
+          <p>备案号:{t('home.Beian Desc')}</p>
         </Box>
       </Box>
       {list.map((item) => (
